@@ -10,10 +10,23 @@ class UserProfileSerializer(serializers.ModelSerializer):
         
 class UserSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer(read_only=True)
+    password = serializers.CharField(write_only=True)
     
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'profile']
+        fields = ['id', 'username', 'email', 'password', 'profile']
+        
+    def create(self, validated_data):
+        
+        password = validated_data.pop('password', None)
+        
+        user = User.objects.create(**validated_data)
+        
+        if password:
+            user.set_password(password)
+            user.save()
+            
+        return user
         
 class ExerciseSerializer(serializers.ModelSerializer):
     muscle_group_display = serializers.CharField(source='get_muscle_group_display', read_only=True)
