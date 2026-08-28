@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 from django.contrib.auth import authenticate
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class CookieTokenObtainPairView(APIView):
@@ -13,6 +14,7 @@ class CookieTokenObtainPairView(APIView):
     permission_classes = []
     
     def post(self, request, *args, **kwargs):
+        print("--- DATOS RECIBIDOS EN LOGIN ---", request.data)
         username = request.data.get('username')
         password = request.data.get('password')
         
@@ -41,6 +43,15 @@ class CookieTokenObtainPairView(APIView):
             secure=not settings.DEBUG,
             samesite='Lax',
             max_age=7 * 24 * 60 * 60
+        )
+        
+        response.set_cookie(
+            key='access_token',
+            value=access_token,
+            httponly=True,
+            secure=not settings.DEBUG,
+            samesite='Lax',
+            max_age=60 * 60
         )
         
         return response
@@ -72,4 +83,17 @@ class CookieTokenLogoutView(APIView):
     def post(self, request, *args, **kwargs):
         response = Response({'detail': 'Successfully logged out'}, status=status.HTTP_200_OK)
         response.delete_cookie('refresh_token')
+        response.delete_cookie('access_token')
         return response
+    
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        return Response({
+            'id': user.id,
+            'username': user.username,
+            'email': user.email
+        }, status=status.HTTP_200_OK) 

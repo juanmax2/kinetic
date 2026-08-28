@@ -14,7 +14,8 @@ from.views import (
 from userProfile.views import (
     CookieTokenObtainPairView,
     CookieTokenLogoutView,
-    CookieTokenRefreshView
+    CookieTokenRefreshView,
+    UserProfileView
 )
 
 router = DefaultRouter()
@@ -32,6 +33,7 @@ urlpatterns = [
     path('api/auth/login/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
     path('api/auth/logout/', CookieTokenLogoutView.as_view(), name='token_logout'),
+    path('me/', UserProfileView.as_view(), name='user_profile'),
 ]
 
 if settings.DEBUG:
