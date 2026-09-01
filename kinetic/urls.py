@@ -28,12 +28,14 @@ router.register(r'workout-sets', WorkoutSetViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path('api/users/me/', UserProfileView.as_view(), name='user_profile'),
+
     path('api/', include(router.urls)),
     
     path('api/auth/login/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
     path('api/auth/logout/', CookieTokenLogoutView.as_view(), name='token_logout'),
-    path('me/', UserProfileView.as_view(), name='user_profile'),
 ]
 
 if settings.DEBUG:

@@ -8,6 +8,8 @@ from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 
+from kinetic.serializers import UserProfileSerializer
+
 # Create your views here.
 class CookieTokenObtainPairView(APIView):
     
@@ -27,12 +29,16 @@ class CookieTokenObtainPairView(APIView):
         access_token = str(refresh.access_token)
         refresh_token_str = str(refresh)
         
+        profile_serializer = UserProfileSerializer(user.profile)
+        
         response = Response({
             'access': access_token,
             'user': {
                 'id': user.id,
                 'username': user.username,
-                'email': user.email
+                'email': user.email,
+                'profile': profile_serializer.data
+                
             } 
         }, status=status.HTTP_200_OK)
         
@@ -92,8 +98,65 @@ class UserProfileView(APIView):
     
     def get(self, request, *args, **kwargs):
         user = request.user
+        
+        profile_serializer = UserProfileSerializer(user.profile)
         return Response({
             'id': user.id,
             'username': user.username,
-            'email': user.email
+            'email': user.email,
+            'profile': profile_serializer.data
         }, status=status.HTTP_200_OK) 
+        
+    def put(self, request, *args, **kwargs):
+        user = request.user
+        data = request.data
+        
+        if 'username' in data:
+            user.username = data['username']
+            
+        if 'email' in data:
+            user.email = data['email']
+        user.save()
+        
+        profile_serializer = UserProfileSerializer(user.profile, data=data, partial=True)
+        
+        if profile_serializer.is_valid():
+            profile = profile_serializer.save()
+            profile.daily_calories_target = self.calculate_calories(profile)
+            
+            profile.save()
+            
+            return Response({
+                'id': user.id,
+                'username': user.username,
+                'email': user.email,
+                'profile': UserProfileSerializer(profile).data
+            }, status=status.HTTP_200_OK)
+            
+        return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def calculate_calories(self, profile):
+        if not profile.weight or not profile.height or not profile.gender:
+            return profile.daily_calories_target
+        
+        weight = float(profile.weight)
+        height = float(profile.height)
+        age = profile.age if profile.age else 30
+        
+        
+        if profile.gender == 'M':
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+        else:
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
+        
+        tdee = bmr * 1.55
+        
+        if profile.goal == 'cut':
+            target = tdee - (tdee * 0.1)
+        elif profile.goal == 'bulk':
+            target = tdee + (tdee * 0.1)
+        else:
+            target = tdee
+
+        return int(round(target))
+        
