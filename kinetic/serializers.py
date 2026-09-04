@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from userProfile.models import UserProfile
-from workouts.models import Exercise, WorkoutSession, WorkoutSet
+from workouts.models import Exercise, WorkoutSession, WorkoutSet, Routine, RoutineExercise
+
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,3 +51,38 @@ class WorkoutSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkoutSession
         fields = ['id', 'user', 'date', 'notes', 'sets']
+        
+
+class RoutineExerciseSerializer(serializers.ModelSerializer):
+    
+    exercise_detail = serializers.StringRelatedField(source='exercise', read_only=True)
+    
+    exercise = serializers.PrimaryKeyRelatedField(queryset=Exercise.objects.all())
+    
+    class Meta:
+        model = RoutineExercise
+        fields = ['id', 'exercise', 'exercise_detail', 'order', 'target_sets', 'target_reps']
+        
+
+class RoutineSerializer(serializers.ModelSerializer):
+    routine_exercises = RoutineExerciseSerializer(many=True)
+    
+    class Meta:
+        model = Routine
+        fields = ['id', 'user', 'name', 'description', 'created_at', 'routine_exercises']
+        read_only_fields = ['user', 'created_at']
+        
+    def create(self, validated_data):
+        exercises_data = validated_data.pop('routine_exercises', [])
+        
+        user = self.context['request'].user
+        routine = Routine.objects.create(user=user, **validated_data)
+
+        for index, exercise_data in enumerate(exercises_data):
+            RoutineExercise.objects.create(
+                routine=routine,
+                order=index,
+                **exercise_data
+            )
+        return routine
+        

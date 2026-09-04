@@ -8,7 +8,8 @@ from.views import (
     UserProfileViewSet,
     ExerciseViewSet,
     WorkoutSessionViewSet,
-    WorkoutSetViewSet
+    WorkoutSetViewSet,
+    RoutineViewSet
 )
 
 from userProfile.views import (
@@ -25,6 +26,7 @@ router.register(r'profiles', UserProfileViewSet)
 router.register(r'exercises', ExerciseViewSet)
 router.register(r'workouts', WorkoutSessionViewSet)
 router.register(r'workout-sets', WorkoutSetViewSet)
+router.register(r'routines', RoutineViewSet, basename='routine')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

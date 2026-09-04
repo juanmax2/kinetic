@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Press de Banca Plano con Barra",
+    "muscle_group": "chest",
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Press de Banca Inclinado con Mancuernas",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Press de Banca DeclINado con Barra",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Aperturas con Mancuernas en Banco Plano",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Flexiones de Pecho (Push-ups)",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Cruce de Poleas Altas (Chest Crossover)",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Press en Máquina Contractora (Pec Deck)",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Fondos en Paralelas para Pecho (Dips)",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Press Inclinado en Máquina Smith",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Pullover con Mancuernas",
+    "muscle_group": "chest",
+    "image": null
+  },
+  {
+    "name": "Dominadas en Barra Fixa (Pull-ups)",
+    "muscle_group": "back",
+    "image": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Peso Muerto Tradicional",
+    "muscle_group": "back",
+    "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Remo con Barra Prono",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Remo en Polea Baja (Tirón Horizontal)",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Jalón al Pecho en Polea",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Remo Unilateral con Mancuerna",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Pull-over en Polea Alta con Barra",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Remo en Máquina T apoyado en pecho",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Extensiones de Espalda en Banco Romano",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Jalón con Agarre Neutro Estrecho",
+    "muscle_group": "back",
+    "image": null
+  },
+  {
+    "name": "Sentadilla Libre con Barra",
+    "muscle_group": "legs",
+    "image": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Prensa de Piernas 45 Grados",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Peso Muerto Rumano con Mancuernas",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Zancadas o Desplantes Caminando",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Curl de Isquiotibiales Acostado (Máquina)",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Extensión de Cuádriceps en Máquina",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Sentadilla Búlgara con Mancuernas",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Elevación de Talones de Pie (Gemelos)",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Hip Thrust con Barra",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Sentadilla Goblet con Kettebell",
+    "muscle_group": "legs",
+    "image": null
+  },
+  {
+    "name": "Press Militar con Barra de Pie",
+    "muscle_group": "shoulders",
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Elevaciones Laterales con Mancuernas",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Press Arnold con Mancuernas",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Pájaros o Deltoides Posterior con Mancuernas",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Elevaciones Frontales con Disco",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Remo al Mentón con Barra Z",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Elevaciones Laterales en Polea Baja",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Press Militar Sentado en Máquina",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Face Pull en Polea Alta",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Encogimientos de Hombros con Mancuernas (Trapecio)",
+    "muscle_group": "shoulders",
+    "image": null
+  },
+  {
+    "name": "Curl de Bíceps con Mancuernas Alterno",
+    "muscle_group": "arms",
+    "image": "https://images.unsplash.com/photo-1581009137042-c5e2e4f850d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Curl con Barra Z en Banco Scott",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Curl Martillo con Mancuernas",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Curl Concentrado con Mancuerna",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Extensión de Tríceps en Polea con Cuerda",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Press Francés con Barra Z en Banco Plano",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Fondos de Tríceps en Paralelas",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Patada de Tríceps con Mancuerna",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Curl en Polea Baja con Barra Recta",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Extensiones de Tríceps Tras Nuca con Mancuerna",
+    "muscle_group": "arms",
+    "image": null
+  },
+  {
+    "name": "Crunch Abdominal en Suelo",
+    "muscle_group": "core",
+    "image": "https://images.unsplash.com/photo-1571019613542-2b3f1737e446?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    "name": "Plancha Frontal Isométrica",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Elevación de Piernas Colgado en Barra",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Russian Twists con Disco o Balón Medicinal",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Rueda Abdominal (Ab Wheel Rollout)",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Mountain Climbers (Escaladores)",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Plancha Lateral con Rotación",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Encogimientos de Piernas en V (V-Ups)",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Bicicletas Abdominales",
+    "muscle_group": "core",
+    "image": null
+  },
+  {
+    "name": "Paseo del Granjero con Mancuernas (Farmer's Walk)",
+    "muscle_group": "core",
+    "image": null
+  }
+]

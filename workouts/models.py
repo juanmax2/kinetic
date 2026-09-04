@@ -39,3 +39,27 @@ class WorkoutSet(models.Model):
     
     def __str__(self):
         return f"{self.exercise.name}: {self.weight}kg x {self.reps}reps (Serie {self.set_number})"
+    
+
+class Routine(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='routines')
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'Rutina: {self.name} ({self.user.username})'
+    
+
+class RoutineExercise(models.Model):
+    routine = models.ForeignKey(Routine, on_delete=models.CASCADE, related_name='routine_exercises')
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    order = models.PositiveIntegerField(default=0)
+    target_sets = models.PositiveIntegerField(default=4)
+    target_reps = models.CharField(max_length=50, blank=True, null=True)
+    
+    class Meta:
+        ordering = ['order']
+        
+    def __str__(self):
+        return f'{self.exercise.name} en {self.routine.name}'

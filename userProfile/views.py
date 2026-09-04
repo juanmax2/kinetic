@@ -8,6 +8,7 @@ from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 
+
 from kinetic.serializers import UserProfileSerializer
 
 # Create your views here.
